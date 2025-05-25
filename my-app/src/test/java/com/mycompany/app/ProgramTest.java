@@ -153,12 +153,14 @@ public class ProgramTest {
 
     @Test
     public void testPanelInitialization() {
+        if (GraphicsEnvironment.isHeadless()) return;
         TicTacToePanel panel = new TicTacToePanel(new GridLayout(3, 3));
         assertNotNull(panel);
     }
 
     @Test
     public void testPanelActionPerformed() {
+        if (GraphicsEnvironment.isHeadless()) return;
         TicTacToePanel panel = new TicTacToePanel(new GridLayout(3, 3));
         TicTacToeCell cell = new TicTacToeCell(0, 0, 0);
         ActionEvent e = new ActionEvent(cell, ActionEvent.ACTION_PERFORMED, "click");
@@ -169,6 +171,7 @@ public class ProgramTest {
 
     @Test
     public void testAppLaunch() {
+        if (GraphicsEnvironment.isHeadless()) return;
         try {
             JFrame frame = new JFrame("Test");
             frame.add(new TicTacToePanel(new GridLayout(3, 3)));
@@ -183,12 +186,14 @@ public class ProgramTest {
 
     @Test
     public void testAppMainLogic() throws IOException {
+        if (GraphicsEnvironment.isHeadless()) return;
         Program.main(new String[]{});
         assertTrue(true);
     }
 
     @Test
     public void testProgramMainGUIStartup() {
+        if (GraphicsEnvironment.isHeadless()) return;
         try {
             Program.main(new String[]{});
             assertTrue(true);
